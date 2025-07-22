@@ -31,4 +31,10 @@ import agenda from './agenda.json';
 export class AppComponent {
   alfabeto: string = 'abcdefghijklmnopqrstuvwxyz';
   contatos: Contato[] = agenda;
+
+  filtrarContatosPorLetraInicial(letra: string): Contato[] {
+    return this.contatos.filter((contato) => {
+      return contato.nome.toLowerCase().startsWith(letra);
+    });
+  }
 }
