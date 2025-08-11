@@ -27,7 +27,10 @@ export class FormularioContatoComponent {
     this.contatoForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       telefone: new FormControl('', [Validators.required, Validators.min(11)]),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('alex@gmail.com', [
+        Validators.required,
+        Validators.email,
+      ]),
       aniversario: new FormControl(''),
       redes: new FormControl(''),
       observacoes: new FormControl(''),

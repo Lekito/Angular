@@ -20,6 +20,10 @@
       formControlName="nome"
     />
 
+    @if(contatoForm.get('nome')?.errors && contatoForm.get('nome')?.touched){
+    <div class="mensagem-erro">Campo obrigatório</div>
+    }
+
     <label for="telefone">Telefone</label>
     <input
       type="number"
@@ -27,6 +31,11 @@
       placeholder="Digite o número do telefone"
       formControlName="telefone"
     />
+    @if(contatoForm.get('telefone')?.errors &&
+    contatoForm.get('telefone')?.touched){
+    <div class="mensagem-erro">Campo obrigatório</div>
+    }
+
     <label for="email">E-mail</label>
     <input
       type="text"
@@ -34,6 +43,9 @@
       placeholder="Insira o endereço de e-mail do contato"
       formControlName="email"
     />
+    @if(contatoForm.get('email')?.errors && contatoForm.get('email')?.touched){
+    <div class="mensagem-erro">Campo obrigatório</div>
+    }
 
     <app-separador></app-separador>
 
