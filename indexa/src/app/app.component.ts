@@ -12,6 +12,7 @@ import { ListaContatosComponent } from './paginas/lista-contatos/lista-contatos.
     RouterOutlet,
     FormularioContatoComponent,
     ListaContatosComponent,
+    RouterOutlet,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
