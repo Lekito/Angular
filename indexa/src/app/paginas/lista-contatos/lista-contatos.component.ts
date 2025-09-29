@@ -13,6 +13,7 @@ import { SeparadorComponent } from '../../componentes/separador/separador.compon
 import { ContatoComponent } from '../../componentes/contato/contato.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista-contatos',
@@ -24,6 +25,7 @@ import { CommonModule } from '@angular/common';
     SeparadorComponent,
     ContatoComponent,
     FormsModule,
+    RouterLink,
   ],
   templateUrl: './lista-contatos.component.html',
   styleUrl: './lista-contatos.component.css',
