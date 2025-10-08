@@ -1,12 +1,4 @@
 import { Component } from '@angular/core';
-
-interface Contato {
-  id: number;
-  nome: string;
-  telefone: string;
-}
-
-import agenda from '../../agenda.json';
 import { ContainerComponent } from '../../componentes/container/container.component';
 import { CabecalhoComponent } from '../../componentes/cabecalho/cabecalho.component';
 import { SeparadorComponent } from '../../componentes/separador/separador.component';
@@ -14,6 +6,7 @@ import { ContatoComponent } from '../../componentes/contato/contato.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Contato, ContatoService } from '../../services/contato.service';
 
 @Component({
   selector: 'app-lista-contatos',
@@ -32,9 +25,13 @@ import { RouterLink } from '@angular/router';
 })
 export class ListaContatosComponent {
   alfabeto: string = 'abcdefghijklmnopqrstuvwxyz';
-  contatos: Contato[] = agenda;
+  contatos: Contato[] = [];
 
   filtroPorTexto: string = '';
+
+  constructor(private contatoService: ContatoService) {
+    this.contatos = this.contatoService.obterContatos();
+  }
 
   private removerAcentos(s: string): string {
     let map: { [key: string]: string } = {
