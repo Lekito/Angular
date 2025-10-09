@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContainerComponent } from '../../componentes/container/container.component';
 import { CabecalhoComponent } from '../../componentes/cabecalho/cabecalho.component';
 import { SeparadorComponent } from '../../componentes/separador/separador.component';
@@ -23,13 +23,15 @@ import { Contato, ContatoService } from '../../services/contato.service';
   templateUrl: './lista-contatos.component.html',
   styleUrl: './lista-contatos.component.css',
 })
-export class ListaContatosComponent {
+export class ListaContatosComponent implements OnInit {
   alfabeto: string = 'abcdefghijklmnopqrstuvwxyz';
   contatos: Contato[] = [];
 
   filtroPorTexto: string = '';
 
-  constructor(private contatoService: ContatoService) {
+  constructor(private contatoService: ContatoService) {}
+
+  ngOnInit() {
     this.contatos = this.contatoService.obterContatos();
   }
 

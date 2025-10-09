@@ -67,7 +67,6 @@ export class ContatoService {
   }
 
   obterContatos() {
-    console.log('Obter Contatos ', this.contatos);
     return this.contatos;
   }
 }
