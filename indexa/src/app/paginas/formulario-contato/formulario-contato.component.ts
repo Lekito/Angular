@@ -28,7 +28,7 @@ import { ContatoService } from '../../services/contato.service';
 export class FormularioContatoComponent implements OnInit {
   contatoForm!: FormGroup;
 
-  constructor(private ContatoService: ContatoService, private router: Router) {}
+  constructor(private ContatoService: ContatoService, private router: Router) { }
 
   ngOnInit() {
     this.inicializarFormulario();
@@ -47,11 +47,13 @@ export class FormularioContatoComponent implements OnInit {
 
   salvarContato() {
     const novoContato = this.contatoForm.value;
-    this.ContatoService.salvarContato(novoContato);
-    console.log('Salvar contato: ', novoContato);
+    this.ContatoService.salvarContato(novoContato).subscribe(() => {
 
-    this.contatoForm.reset();
-    this.router.navigateByUrl('/lista-contatos');
+      console.log('Salvar contato: ', novoContato);
+
+      this.contatoForm.reset();
+      this.router.navigateByUrl('/lista-contatos');
+    });
   }
 
   cancelar() {
