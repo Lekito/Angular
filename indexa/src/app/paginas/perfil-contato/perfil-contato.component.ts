@@ -19,6 +19,7 @@ export class PerfilContatoComponent implements OnInit {
   contato: Contato = {
     id: 0,
     nome: '',
+    avatar: '',
     telefone: '',
     email: '',
     aniversario: '',
